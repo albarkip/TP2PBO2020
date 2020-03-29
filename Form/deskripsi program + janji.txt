@@ -8,7 +8,7 @@ deskripsi program:
 	-proram udah konek sama db nya.
 	-kalo di run, pertama disambut welcome message.klik ok.
 	-trus, masuk ke tampilan utama.ada gambar karakter original saya dan disini ada 3 button (peminjaman, perpanjangan, pengembalian).ada footer nim nama juga.
-		-masuk ke peminjaman, ada kumpulan textfield , button pinjam untuk meminjam buku yg datanya sudah ditulis, ada tabel untuk buku yang sudah dipinjam,ada button back untuk ke halaman utama, dan ada footer dibawah. ini menggunal=kan sql insert.
+		-masuk ke peminjaman, ada kumpulan textfield, jika inputan tanggal pinjaman dan pengembaliannya diataws 30 misal 45, nanti auto di modulo 30 dengan asumsi sebulan ada 30 hari, button pinjam untuk meminjam buku yg datanya sudah ditulis, ada tabel untuk buku yang sudah dipinjam,ada button back untuk ke halaman utama, dan ada footer dibawah. ini menggunal=kan sql insert.
 		-masuk ke perpanjang, ada 2 textfield, button perpanjang untuk perpanjang, tapi tanggal disini saya tidak menggunakan date, masih sebuah string yang dijadiin integer dulu, jadi di asumsikan sebulan itu 30 hari, nah misal tangal kembali itu awalnya tanggal 29 trus durasi perpanjangnya 10, maka nanti ke update nya jadi (29 + 10) % 30 --> jadi nanti kesimpennya tanggal 9 di db. lalu ada tabel, button back, dan footer. ini menggunakan sql update.
 		-masuk ke pengembalian, ada sebuah textfield, button pengembalian, tabel, button back, dan footer. ini menggunakan sql delete.
 	-untuk ketiga fitur, akan ada pop up message jika kode buku tidak ditemukan.
