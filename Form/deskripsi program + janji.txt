@@ -1,0 +1,14 @@
+Saya Albari Berki Pradhana mengerjakan TP2PBO dalam 
+mata kuliah PBO untuk keberkahanNya maka saya tidak melakukan 
+kecurangan seperti yang telah dispesifikasikan. Aamiin.
+
+deskripsi program:
+	-programnya ada di folder form, karena awalnya saya mau coba" bikin form simple yg kekoneksi ke db, ternyata udh kepalang pake itu jadi semuanya di projek form.
+	-database nya namanya db_buku, isinya cuma 1 tabel (tabel buku).
+	-proram udah konek sama db nya.
+	-kalo di run, pertama disambut welcome message.klik ok.
+	-trus, masuk ke tampilan utama. disini ada 3 button (peminjaman, perpanjangan, pengembalian).ada footer nim nama juga.
+		-masuk ke peminjaman, ada kumpulan textfield , button pinjam untuk meminjam buku yg datanya sudah ditulis, ada tabel untuk buku yang sudah dipinjam,ada button back untuk ke halaman utama, dan ada footer dibawah. ini menggunal=kan sql insert.
+		-masuk ke perpanjang, ada 2 textfield, button perpanjang untuk perpanjang, tapi tanggal disini saya tidak menggunakan date, masih sebuah string, jadi di asumsikan saja user nya menulisnkan durasinya itu maksudnya tanggal setelah diperpanjang. lalu ada tabel, button back, dan footer. ini menggunakan sql update.
+		-masuk ke pengembalian, ada sebuah textfield, button pengembalian, tabel, button back, dan footer. ini menggunakan sql delete.
+	-untuk ketiga fitur, akan ada pop up message jika kode buku tidak ditemukan.
