@@ -249,9 +249,14 @@ public class formpinjam extends javax.swing.JFrame {
         String cs = tbnamapinjam.getText();
         String ds = tbpinjam.getText();
         String es = tbkembali.getText();
-        
+        int est = Integer.parseInt(es);
+        int dst = Integer.parseInt(ds);
+        int esto = est % 30;
+        int dsto = dst % 30;
+        String estor = String.valueOf(esto);
+        String dstor = String.valueOf(dsto);
         aksi boi = new aksi();
-        boi.masuk(as, bs, cs, ds, es);
+        boi.masuk(as, bs, cs, dstor, estor);
         
         formpinjam a = new formpinjam();
         a.setVisible(true);
