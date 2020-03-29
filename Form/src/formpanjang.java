@@ -180,6 +180,7 @@ public class formpanjang extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        String durasis = "";
         String sql = "select * from buku order by kode_buku asc";
         int i = 0;
         try{
@@ -190,6 +191,7 @@ public class formpanjang extends javax.swing.JFrame {
             while (hasil.next()){
                 String kode_buku = hasil.getString("kode_buku");
                 if(kode_buku.equals(tbkodebuku.getText())){
+                    durasis = hasil.getString("tanggal_kembali");
                     i = 1;
                 }
             }
@@ -200,11 +202,16 @@ public class formpanjang extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(null, "kode gaada"); 
             }
         try{
+                
                 String ds = tbkodebuku.getText();
                 String es = tbdurasi.getText();
-                System.out.println(es);
+                int dur = Integer.parseInt(es);
+                int dura = Integer.parseInt(durasis);
+                int jum = (dur + dura) % 30;
+                String durfix = String.valueOf(jum);
+
                     String sqls = "update buku set kode_buku = kode_buku, nama_buku = nama_buku, nama_peminjam = nama_peminjam, tanggal_pinjam = tanggal_pinjam, tanggal_kembali = '%s' where kode_buku = '%s'";
-                    sqls = String.format(sqls, es, ds);
+                    sqls = String.format(sqls, durfix, ds);
                     Connection g = new koneksi_mysql().getConnection();
                     Statement stats = g.createStatement();
                     stats.execute(sqls);
