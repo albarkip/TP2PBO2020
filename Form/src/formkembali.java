@@ -158,39 +158,11 @@ public class formkembali extends javax.swing.JFrame {
 
     private void aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aActionPerformed
         // TODO add your handling code here:
-        String sqlb = "select * from buku order by kode_buku asc";
-        int j = 0;
-        try{
-            Connection kons = new koneksi_mysql().getConnection();
-            Statement stata = kons.createStatement();
-            ResultSet hasilb = stata.executeQuery(sqlb);
-            
-            while (hasilb.next()){
-                String kode_buku = hasilb.getString("kode_buku");
-                if(kode_buku.equals(tbkodebuku.getText())){
-                    j = 1;
-                }
-            }
-            kons.close();
-        }catch (Exception e){
-        }
-            if(j == 0){
-               JOptionPane.showMessageDialog(null, "kode gaada"); 
-            }
-        
-        try{
-            String as = tbkodebuku.getText();
-            String sqls = "delete from buku where kode_buku = '%s'";
-            sqls = String.format(sqls, as);
-            Connection a = new koneksi_mysql().getConnection();
-            Statement stat = a.createStatement();
-            sqls = String.format(sqls);
-            stat.execute(sqls); 
-            a.close();
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "gagal mengembalikan");
-            System.err.print("gagal "+e.getMessage());
-        }
+        String as = tbkodebuku.getText();
+        aksi boi = new aksi();
+        boi.cekbuku(as);
+
+        boi.hapus(as);
         formkembali a = new formkembali();
         a.setVisible(true);
         

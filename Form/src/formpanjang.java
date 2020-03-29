@@ -180,46 +180,12 @@ public class formpanjang extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String durasis = "";
-        String sql = "select * from buku order by kode_buku asc";
-        int i = 0;
-        try{
-            Connection kon = new koneksi_mysql().getConnection();
-            Statement stat = kon.createStatement();
-            ResultSet hasil = stat.executeQuery(sql);
-            
-            while (hasil.next()){
-                String kode_buku = hasil.getString("kode_buku");
-                if(kode_buku.equals(tbkodebuku.getText())){
-                    durasis = hasil.getString("tanggal_kembali");
-                    i = 1;
-                }
-            }
-            kon.close();
-        }catch (Exception e){
-        }
-            if(i == 0){
-               JOptionPane.showMessageDialog(null, "kode gaada"); 
-            }
-        try{
-                
-                String ds = tbkodebuku.getText();
-                String es = tbdurasi.getText();
-                int dur = Integer.parseInt(es);
-                int dura = Integer.parseInt(durasis);
-                int jum = (dur + dura) % 30;
-                String durfix = String.valueOf(jum);
-
-                    String sqls = "update buku set kode_buku = kode_buku, nama_buku = nama_buku, nama_peminjam = nama_peminjam, tanggal_pinjam = tanggal_pinjam, tanggal_kembali = '%s' where kode_buku = '%s'";
-                    sqls = String.format(sqls, durfix, ds);
-                    Connection g = new koneksi_mysql().getConnection();
-                    Statement stats = g.createStatement();
-                    stats.execute(sqls);
-            g.close();
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "gagal perpanjang");
-            System.err.print("gagal"+e.getMessage());
-        }
+        
+        String ds = tbkodebuku.getText();
+        String es = tbdurasi.getText();
+        aksi boi = new aksi();
+        boi.cekbuku(ds);
+        boi.panjang(ds, es);
         formpanjang a = new formpanjang();
         a.setVisible(true);
         

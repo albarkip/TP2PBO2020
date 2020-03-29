@@ -249,16 +249,10 @@ public class formpinjam extends javax.swing.JFrame {
         String cs = tbnamapinjam.getText();
         String ds = tbpinjam.getText();
         String es = tbkembali.getText();
-        try{
-            Connection kon = new koneksi_mysql().getConnection();
-            String sql = "insert into buku (kode_buku, nama_buku, nama_peminjam, tanggal_pinjam, tanggal_kembali) values ('%s', '%s', '%s', '%s', '%s')";
-            sql = String.format(sql, as, bs, cs, ds, es);
-            Statement stat = kon.createStatement();
-            stat.execute(sql);
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "gagal minjem");
-            
-        }
+        
+        aksi boi = new aksi();
+        boi.masuk(as, bs, cs, ds, es);
+        
         formpinjam a = new formpinjam();
         a.setVisible(true);
         
